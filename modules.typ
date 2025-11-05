@@ -33,8 +33,10 @@
 }
 
 #let find_min(levels)={
-  min = calc.min(levels.energy)
+  let energies = levels.map(it => it.energy)
+  calc.min(..energies)
 }
 #let find_max(levels)={
-  max = calc.max(levels.energy)
+  let energies = levels.map(it => it.energy)
+  calc.max(..energies)
 }

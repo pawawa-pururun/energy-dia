@@ -7,9 +7,8 @@
   // width:5
   // height:5
   // levels: (energy:4, electrons:1), (energy:5, electrons:2), (energy:6, electrons:1)
-  find_min(levels)
-  find_max(levels)
-  let max =8
+  let min = find_min(levels.pos())
+  let max = find_max(levels.pos())
   cetz.canvas({
   import cetz.draw: *
 
