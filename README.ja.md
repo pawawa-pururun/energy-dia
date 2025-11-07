@@ -90,4 +90,4 @@ Energy-Diaは、Typstでエネルギー図（原子軌道図、分子軌道図�
 
 ## 詳細
 
-詳細な使用方法は[manual.pdf](0.1.0/docs/manual.pdf)を確認してください。
+詳細な使用方法は[manual.pdf](0.1.0/docs/manual.ja.pdf)を確認してください。
