@@ -175,3 +175,13 @@
     }
   }
 }
+
+#let draw_energy_level_band(line_fn, content_fn, energy, width, height, min, max, include_energy_labels: bool) = {
+  let y= scale_y(energy, min, max, height)
+  let x = width / 2
+  let line_length = width / 7
+  line_fn((x - line_length, y),(x + line_length, y))
+  if include_energy_labels {
+    content_fn((x - line_length - width/20,y), [$energy$])
+  }
+}

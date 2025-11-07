@@ -62,6 +62,20 @@
   })
 }
 
+#let band(width:5, height:5, include_energy_labels: false, ..levels) = {
+  let levels_pos = levels.pos()
+  let min = calc.min(..levels_pos)
+  let max = calc.max(..levels_pos)
+  cetz.canvas({
+    import cetz.draw: *
+    draw_axis(line, content, width, height)
+
+    for level in levels_pos {
+      draw_energy_level_band(line, content, level, width, height, min, max, include_energy_labels: include_energy_labels)
+    }
+  })
+}
+
 
 #ao(
   width: 10,
@@ -78,4 +92,18 @@
   molecule: ((energy: -8, electrons: 2, label: 2), (energy: -3, electrons: 0, label: 3)),
   atom2: ((energy: -10, electrons: 1), (energy: -5, electrons: 1, label:4)),
   (1,2),(3,4), (2,4),
+)
+
+// bandテスト
+
+#let data= csv("test.csv")
+#let energies= data.map(row => float(row.at(0))).flatten()
+#band(
+  include_energy_labels:false,
+  ..energies
+)
+
+#band(
+  include_energy_labels:true,
+  5,6,7
 )
