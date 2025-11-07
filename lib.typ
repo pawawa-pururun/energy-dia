@@ -18,9 +18,9 @@
     draw_axis(line, content, width, height)
 
     for level in pos_levels {
-      draw_energy_level_ao(line, content, level.at("energy", default: 0), width, height, min, max, degeneracy: level.at("degeneracy", default: 1),caption: level.at("caption", default: none))
+      draw_energy_level_ao(line, content, level.at("energy"), width, height, min, max, degeneracy: level.at("degeneracy", default: 1),caption: level.at("caption", default: none))
 
-      draw_electron_ao(line, content, level.at("energy", default: 0), level.at("electrons", default: 0), width, height, min, max, up: level.at("up", default: none))
+      draw_electron_ao(line, content, level.at("energy"), level.at("electrons", default: 0), width, height, min, max, up: level.at("up", default: none))
     }
   })
   }
@@ -37,24 +37,24 @@
     
     let left_x = width / 6
     for level in atom1 {
-      draw_energy_level_mo(line, content, level.at("energy", default: 0), left_x, width, height, min, max, degeneracy: level.at("degeneracy", default: 1), caption: level.at("caption", default: none))
+      draw_energy_level_mo(line, content, level.at("energy"), left_x, width, height, min, max, degeneracy: level.at("degeneracy", default: 1), caption: level.at("caption", default: none))
 
-      draw_electron_mo(line, content, level.at("energy", default: 0), level.at("electrons", default: 0), left_x, width, height, min, max, up: level.at("up", default: none))
+      draw_electron_mo(line, content, level.at("energy"), level.at("electrons", default: 0), left_x, width, height, min, max, up: level.at("up", default: none))
     }
     
 
     let center_x = width / 2
     for level in molecule {
-      draw_energy_level_mo(line, content, level.at("energy", default: 0), center_x, width, height, min, max, degeneracy: level.at("degeneracy", default: 1), caption: level.at("caption", default: none))
+      draw_energy_level_mo(line, content, level.at("energy"), center_x, width, height, min, max, degeneracy: level.at("degeneracy", default: 1), caption: level.at("caption", default: none))
 
-      draw_electron_mo(line, content, level.at("energy", default: 0), level.at("electrons", default: 0), center_x, width, height, min, max, up: level.at("up", default: none))
+      draw_electron_mo(line, content, level.at("energy"), level.at("electrons", default: 0), center_x, width, height, min, max, up: level.at("up", default: none))
     }
 
     let right_x = 5 * width / 6
     for level in atom2 {
-      draw_energy_level_mo(line, content, level.at("energy", default: 0), right_x, width, height, min, max, degeneracy: level.at("degeneracy", default: 1), caption: level.at("caption", default: none))
+      draw_energy_level_mo(line, content, level.at("energy"), right_x, width, height, min, max, degeneracy: level.at("degeneracy", default: 1), caption: level.at("caption", default: none))
 
-      draw_electron_mo(line, content, level.at("energy", default: 0), level.at("electrons", default: 0), right_x, width, height, min, max, up: level.at("up", default: none))
+      draw_electron_mo(line, content, level.at("energy"), level.at("electrons", default: 0), right_x, width, height, min, max, up: level.at("up", default: none))
     }
 
 
