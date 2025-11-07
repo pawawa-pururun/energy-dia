@@ -1,1 +1,5 @@
 /.github
+*.DS_Store
+*.pdf
+!demo.pdf
+!manual.pdf
