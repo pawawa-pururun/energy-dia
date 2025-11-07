@@ -40,7 +40,12 @@
     let spacing = (right - left) / (number + 1)
     for i in range(number) {
       let x = left + (i + 1) * spacing
-      line_fn((x ,y - height/20),(x,y + height/20), mark: (end:"straight"))
+      let is_up = calc.rem(i, 2) == 0
+      if is_up {
+        line_fn((x, y + height/20), (x, y - height/20), mark: (end: "straight"))
+      } else {
+        line_fn((x, y - height/20), (x, y + height/20), mark: (end: "straight"))
+      }
     }
   }
 }
