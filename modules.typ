@@ -21,14 +21,14 @@
 }
 
 #let draw_electron(line_fn, content_fn, energy, number, width, height, min, max) = {
-  let y= scale_y(energy, min, max, height)
-  let x= position_x_ao(width)
-  if number == 1{
-    line_fn((x - width/20 ,y - height/20),(x - width/20,y + height/20), mark: (end:"straight"))
-  }
-  if number == 2{
-    line_fn((x - width/20 ,y - height/20),(x - width/20,y + height/20), mark: (end:"straight"))
-    line_fn((x + width/20 ,y - height/20),(x + width/20,y + height/20), mark: (start:"straight"))
+  let y = scale_y(energy, min, max, height)
+  let x_center = position_x_ao(width)
+  let left = x_center - width / 7
+  let right = x_center + width / 7
+  let spacing = (right - left) / (number + 1)
+  for i in range(number) {
+    let x = left + (i + 1) * spacing
+    line_fn((x ,y - height/20),(x,y + height/20), mark: (end:"straight"))
   }
 }
 
