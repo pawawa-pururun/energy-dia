@@ -1,5 +1,7 @@
 # Energy-Dia
 
+[English version](README.md)
+
 Energy-Diaは、Typstでエネルギー図（原子軌道図、分子軌道図、バンド構造図）を作成するためのライブラリです。CeTZライブラリを使用して、化学や物理学の図を簡単に描画できます。
 
 ## 特徴

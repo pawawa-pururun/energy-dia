@@ -1,5 +1,7 @@
 # Energy-Dia
 
+[日本語版](README.ja.md)
+
 Energy-Dia is a Typst library for creating energy diagrams such as atomic orbital diagrams, molecular orbital diagrams, and band structure diagrams. It utilizes the CeTZ library to easily draw diagrams for chemistry and physics.
 
 ## Features
