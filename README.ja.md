@@ -12,16 +12,11 @@ Energy-Diaは、Typstでエネルギー図（原子軌道図、分子軌道図�
 
 ## インストール
 
-このライブラリを使用するには、Typstプロジェクトに以下のファイルを追加してください：
-
-- `lib.typ`
-- `modules.typ`
-
-プロジェクトのルートディレクトリにこれらのファイルを配置し、ドキュメント内でインポートします。
-
+このライブラリを使用するには、以下の通りインポートしてください：
 ```typst
-#import "lib.typ": *
+#import "@preview/energy-dia:0.1.0": *
 ```
+
 
 ## 依存関係
 
@@ -39,9 +34,9 @@ Energy-Diaは、Typstでエネルギー図（原子軌道図、分子軌道図�
 #ao(
   width: 10,
   height: 10,
-  (energy: 4, electrons: 1, caption: "1s"),
-  (energy: 5, electrons: 2, degeneracy: 2),
-  (energy: 6, electrons: 4, degeneracy: 3, up: 3)
+  (energy: -10, electrons: 2, caption: "1s"),
+  (energy: -3, electrons: 2, caption: "2s"),
+  (energy: -1, electrons: 4, degeneracy: 3, up: 3, caption: "2p"),
 )
 ```
 
@@ -93,10 +88,26 @@ Energy-Diaは、Typstでエネルギー図（原子軌道図、分子軌道図�
   ..energies
 )
 ```
+## 例
+
+### 原子軌道図
+
+![原子軌道図の例](img/atomic_orbital.png)
+
+### 分子軌道
+
+![分子軌道の例](img/molecular_orbital.png)
+
+### バンド構造図
+
+![バンド構造図の例](img/band.png)
+
+詳細な具体例は[demo.typ](demo/demo.typ)を参照してください。
 
 ## 詳細
 
-詳細な使用方法は[manual.pdf](0.1.0/docs/manual.ja.pdf)を確認してください。
+詳細な使用方法は[manual.ja.pdf](docs/manual.ja.pdf)を確認してください。
 
 ## ライセンス
+
 このライブラリは GNU General Public License Version 3 の下でライセンスされています。[LICENSE](LICENSE) を確認してください。

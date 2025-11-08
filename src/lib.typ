@@ -77,6 +77,8 @@
 ///   atom2: ((energy: -1, electrons: 2), (energy: 0, electrons: 1))
 /// )
 /// ```
+/// Warning:
+/// Each atom and molecular orbital is required to be an array. Therefore, even if there is only one orbital, do not forget to put a comma at the end.
 #let mo(width: 5, height: 5, atom1: (), molecule: (), atom2: (), ..connections)={
   let all_levels = atom1 + molecule + atom2
   let min = find_min(all_levels)
