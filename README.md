@@ -1,4 +1,4 @@
-# Energy-Dia ⚡
+# Energy-Dia
 
 [日本語版](README.ja.md)
 
@@ -12,7 +12,7 @@
 - **Customizable**: Full control over diagram size, labels, and styling
 - **Simple Syntax**: Intuitive API that's easy to learn and use
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -181,14 +181,14 @@ Plot energy diagram with minimal syntax—ideal-perfect for band structures, whi
 
 **See [demo.typ](demo/demo.typ) for complete working examples!**
 
-## 🔧 Dependencies
+## Dependencies
 
 - **[CeTZ](https://github.com/cetz-package/cetz)** v0.4.2 - Drawing library (LGPL-3.0)
 
-## 📄 License
+## License
 
 This project is licensed under the **GNU General Public License v3.0**. See [LICENSE](LICENSE) for details.
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Feel free to open issues or submit pull requests.

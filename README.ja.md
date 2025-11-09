@@ -1,4 +1,4 @@
-# Energy-Dia ⚡
+# Energy-Dia
 
 [English version](README.md)
 
@@ -181,14 +181,14 @@
 
 **完全な実例は[demo.typ](demo/demo.typ)をご覧ください！**
 
-## 🔧 依存関係
+## 依存関係
 
 - **[CeTZ](https://github.com/cetz-package/cetz)** v0.4.2 - 描画ライブラリ（LGPL-3.0）
 
-## 📄 ライセンス
+## ライセンス
 
 このプロジェクトは**GNU General Public License v3.0**の下でライセンスされています。詳細は[LICENSE](LICENSE)を参照してください。
 
-## 🤝 貢献
+## 貢献
 
 貢献を歓迎します！issueを開いたり、プルリクエストを送信したりしてください。
