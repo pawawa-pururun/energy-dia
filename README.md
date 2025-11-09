@@ -8,7 +8,7 @@ Energy-Dia is a Typst library for creating energy diagrams such as atomic orbita
 
 - **Atomic Orbital Diagrams (AO)**: Visualize energy levels and electron configurations of atoms.
 - **Molecular Orbital Diagrams (MO)**: Display molecular orbital formation and electron configurations.
-- **Band Structure Diagrams**: Plot band structures.
+- **Band Structure Diagrams**: Plot band structures. You can write orbital levels just by providing energies, so although the functionality is limited, it's easy to write. It's optimal for band structures where many orbitals need to be written.
 
 ## Installation
 

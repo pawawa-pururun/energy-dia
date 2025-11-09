@@ -6,6 +6,7 @@
 /// Arguments:
 /// - width (length): Width of the diagram
 /// - height (length): Height of the diagram
+/// - name (string): Name of the atom (default: none)
 /// - levels (array of dictionaries): Energy level and electron count data. Each dictionary has the following keys:
 ///   - energy (number): Energy value
 ///   - electrons (number): Number of electrons (default: 0)
@@ -20,7 +21,7 @@
 ///   (energy: 0, electrons: 1)
 /// )
 /// ```
-#let ao(width: 5, height: 5, ..levels) = {
+#let ao(width: 5, height: 5, name: none, exclude_energy:false, ..levels) = {
   let pos_levels = levels.pos()
   if pos_levels.len() == 0 {
     cetz.canvas({
@@ -34,9 +35,14 @@
     import cetz.draw: *
 
     draw_axis(line, content, width, height)
+    if name != none {
+      let x_position = width / 2
+      draw_atomic_name(line, content, name, x_position, height)
+    }else{
+    }
 
     for level in pos_levels {
-      draw_energy_level_ao(line, content, level.at("energy"), width, height, min, max, degeneracy: level.at("degeneracy", default: 1),caption: level.at("caption", default: none))
+      draw_energy_level_ao(line, content, level.at("energy"), width, height, min, max, degeneracy: level.at("degeneracy", default: 1), caption: level.at("caption", default: none), exclude_energy: exclude_energy)
 
       draw_electron_ao(line, content, level.at("energy"), level.at("electrons", default: 0), width, height, min, max, up: level.at("up", default: none))
     }
@@ -79,7 +85,7 @@
 /// ```
 /// Warning:
 /// Each atom and molecular orbital is required to be an array. Therefore, even if there is only one orbital, do not forget to put a comma at the end.
-#let mo(width: 5, height: 5, atom1: (), molecule: (), atom2: (), ..connections)={
+#let mo(width: 5, height: 5, names: (), exclude_energy: false, atom1: (), molecule: (), atom2: (), ..connections)={
   let all_levels = atom1 + molecule + atom2
   let min = find_min(all_levels)
   let max = find_max(all_levels)
@@ -90,7 +96,7 @@
     
     let left_x = width / 6
     for level in atom1 {
-      draw_energy_level_mo(line, content, level.at("energy"), left_x, width, height, min, max, degeneracy: level.at("degeneracy", default: 1), caption: level.at("caption", default: none))
+      draw_energy_level_mo(line, content, level.at("energy"), left_x, width, height, min, max, degeneracy: level.at("degeneracy", default: 1), caption: level.at("caption", default: none), exclude_energy: exclude_energy)
 
       draw_electron_mo(line, content, level.at("energy"), level.at("electrons", default: 0), left_x, width, height, min, max, up: level.at("up", default: none))
     }
@@ -98,20 +104,29 @@
 
     let center_x = width / 2
     for level in molecule {
-      draw_energy_level_mo(line, content, level.at("energy"), center_x, width, height, min, max, degeneracy: level.at("degeneracy", default: 1), caption: level.at("caption", default: none))
+      draw_energy_level_mo(line, content, level.at("energy"), center_x, width, height, min, max, degeneracy: level.at("degeneracy", default: 1), caption: level.at("caption", default: none), exclude_energy: exclude_energy)
 
       draw_electron_mo(line, content, level.at("energy"), level.at("electrons", default: 0), center_x, width, height, min, max, up: level.at("up", default: none))
     }
 
     let right_x = 5 * width / 6
     for level in atom2 {
-      draw_energy_level_mo(line, content, level.at("energy"), right_x, width, height, min, max, degeneracy: level.at("degeneracy", default: 1), caption: level.at("caption", default: none))
+      draw_energy_level_mo(line, content, level.at("energy"), right_x, width, height, min, max, degeneracy: level.at("degeneracy", default: 1), caption: level.at("caption", default: none), exclude_energy: exclude_energy)
 
       draw_electron_mo(line, content, level.at("energy"), level.at("electrons", default: 0), right_x, width, height, min, max, up: level.at("up", default: none))
     }
 
 
     draw_connections(line, connections.pos(), atom1, molecule, atom2, width, height, min, max)
+
+    if names != () {
+      let x_positions = (left_x, center_x, right_x)
+      for i in range(names.len()) {
+        if names.at(i) != "" {
+          draw_atomic_name(line, content, names.at(i), x_positions.at(i), height)
+        }
+      }
+    }
   })
 }
 

@@ -17,7 +17,7 @@
   content_fn((0, height / 2), [energy / eV], angle: 90deg, anchor: "south")
 }
 
-#let draw_energy_level_ao(line_fn, content_fn, energy, width, height, min, max, degeneracy: 1, caption: none) = {
+#let draw_energy_level_ao(line_fn, content_fn, energy, width, height, min, max, degeneracy: 1, caption: none, exclude_energy: bool) = {
   let y= scale_y(energy, min, max, height)
   let x= position_x_ao(width)
   let line_length = width / 7
@@ -26,8 +26,12 @@
     let offset = (i - (degeneracy - 1) / 2) * spacing
     line_fn((x - line_length, y + offset),(x + line_length, y + offset))
   }
+  if exclude_energy == false {
   content_fn((x - line_length - width/20,y), [$energy$])
-  content_fn((x + line_length + width/20, y), [$caption$])
+  }
+  if caption !=none{
+    content_fn((x + line_length + width/20, y), [$caption$])
+  }
 }
 
 #let draw_electron_ao(line_fn, content_fn, energy, number, width, height, min, max, up: none) = {
@@ -64,6 +68,10 @@
   }
 }
 
+#let draw_atomic_name(line_fn, content_fn, name, width, height) = {
+  content_fn((width, height), [$name$], anchor: "center")
+}
+
 #let find_min(levels)={
   if levels.len() == 0 {
     0
@@ -83,7 +91,7 @@
 }
 
 
-#let draw_energy_level_mo(line_fn, content_fn, energy, x_pos, width, height, min, max, degeneracy: 1, caption: none) = {
+#let draw_energy_level_mo(line_fn, content_fn, energy, x_pos, width, height, min, max, degeneracy: 1, caption: none, exclude_energy: bool) = {
   let y= scale_y(energy, min, max, height)
   let line_length = width / 21
   let spacing = height / 50
@@ -91,8 +99,12 @@
     let offset = (i - (degeneracy - 1) / 2) * spacing
     line_fn((x_pos - line_length, y + offset),(x_pos + line_length, y + offset))
   }
-  content_fn((x_pos - line_length - width/20, y), [$energy$])
+  if exclude_energy == false {
+    content_fn((x_pos - line_length - width/20,y), [$energy$])
+  }
+  if caption !=none{
   content_fn((x_pos + line_length + width/20, y), [$caption$])
+  }
 }
 
 #let draw_electron_mo(line_fn, content_fn, energy, number, x_pos, width, height, min, max, up: none) = {
