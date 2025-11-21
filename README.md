@@ -1,6 +1,8 @@
-# Energy-Dia
+[![Typst Package](https://img.shields.io/badge/dynamic/toml?url=https%3A%2F%2Fraw.githubusercontent.com%2Fpawawa-pururun%2Fenergy-dia%2Fmain%2Ftypst.toml&query=%24.package.version&prefix=v&logo=typst&label=package&color=239DAD)](https://typst.app/universe/package/energy-dia)
+[![GPL 3.0 License](https://img.shields.io/badge/license-GPL3.0-blue)](https://github.com/pawawa-pururun/energy-dia/blob/main/LICENSE)
+[![User Manual](https://img.shields.io/badge/manual-.pdf-purple)](https://raw.githubusercontent.com/pawawa-pururun/energy-dia/master/demo/demo.pdf)
 
-[日本語版](README.ja.md)
+# Energy-Dia
 
 **Energy-Dia** is a powerful and intuitive Typst library for creating professional energy diagrams in chemistry and physics. Built on top of CeTZ, it makes drawing atomic orbitals, molecular orbitals, and band structures effortless and beautiful.
 
@@ -180,14 +182,6 @@ Plot energy diagram with minimal syntax—ideal-perfect for band structures, whi
 ![Band Structure](img/band.png)
 
 **See [demo.typ](demo/demo.typ) for complete working examples!**
-
-## Dependencies
-
-- **[CeTZ](https://github.com/cetz-package/cetz)** v0.4.2 - Drawing library (LGPL-3.0)
-
-## License
-
-This project is licensed under the **GNU General Public License v3.0**. See [LICENSE](LICENSE) for details.
 
 ## Contributing
 
